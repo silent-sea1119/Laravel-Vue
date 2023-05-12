@@ -1,0 +1,114 @@
+{
+    "name": "app",
+    "version": "0.1.0",
+    "private": true,
+    "author": "Muhammad Umer Farooq",
+    "description": "Alumni App",
+    "Email": "umer@lablnet.com",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "prod": "npm run remove-prod && npm run build && npm run copy-prod",
+        "copy-prod": "cp -R ./dist/* ./public/spa",
+        "remove-prod": "ls ./public/spa/* | grep -xv 'gitignore' | rm -R -d ./public/spa/*",
+        "test:unit": "vue-cli-service test:unit",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "@fancyapps/ui": "^4.0.26",
+        "@fortawesome/fontawesome-free": "^6.1.1",
+        "@popperjs/core": "^2.11.6",
+        "@tailwindcss/line-clamp": "^0.4.2",
+        "@tailwindcss/postcss7-compat": "^2.0.2",
+        "axios": "^0.27.2",
+        "babel-eslint": "^10.1.0",
+        "core-js": "^3.8.3",
+        "jquery": "^3.6.1",
+        "mavon-editor": "^3.0.0-beta",
+        "mitt": "^3.0.0",
+        "moment": "^2.29.4",
+        "nprogress": "^0.2.0",
+        "pinia": "^2.0.21",
+        "register-service-worker": "^1.7.2",
+        "selectize": "^0.12.6",
+        "showdown": "^2.0.3",
+        "standard": "^17.0.0",
+        "sweetalert2": "^11.6.10",
+        "vue": "^3.2.13",
+        "vue-class-component": "^8.0.0-0",
+        "vue-router": "^4.0.3",
+        "vue3-markdown-it": "^1.0.10",
+        "vuex": "^4.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.0.1",
+        "@types/nprogress": "^0.2.0",
+        "@typescript-eslint/eslint-plugin": "^5.4.0",
+        "@typescript-eslint/parser": "^5.4.0",
+        "@vue/cli-plugin-babel": "~5.0.0",
+        "@vue/cli-plugin-eslint": "~5.0.0",
+        "@vue/cli-plugin-pwa": "~5.0.0",
+        "@vue/cli-plugin-router": "~5.0.0",
+        "@vue/cli-plugin-typescript": "~5.0.0",
+        "@vue/cli-plugin-unit-jest": "~5.0.0",
+        "@vue/cli-plugin-vuex": "~5.0.0",
+        "@vue/cli-service": "~5.0.0",
+        "@vue/eslint-config-standard": "^6.1.0",
+        "@vue/eslint-config-typescript": "^9.1.0",
+        "@vue/test-utils": "^2.0.0-0",
+        "@vue/vue3-jest": "^27.0.0-alpha.1",
+        "autoprefixer": "^9.8.8",
+        "babel-jest": "^27.0.6",
+        "eslint": "^7.32.0",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-vue": "^8.0.3",
+        "jest": "^27.0.5",
+        "postcss": "^7.0.39",
+        "sass": "^1.32.7",
+        "sass-loader": "^12.0.0",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+        "ts-jest": "^27.0.4",
+        "typescript": "~4.5.5",
+        "vue-cli-plugin-pinia": "~0.1.5",
+        "vue-cli-plugin-tailwindcss": "~0.1.1"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/vue3-essential",
+            "@vue/standard",
+            "@vue/typescript/recommended"
+        ],
+        "parserOptions": {
+            "ecmaVersion": 2020
+        },
+        "rules": {},
+        "overrides": [
+            {
+                "files": [
+                    "**/__tests__/*.{j,t}s?(x)",
+                    "**/tests/unit/**/*.spec.{j,t}s?(x)"
+                ],
+                "env": {
+                    "jest": true
+                }
+            }
+        ]
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ],
+    "jest": {
+        "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
+        "transform": {
+            "^.+\\.vue$": "vue-jest"
+        }
+    }
+}

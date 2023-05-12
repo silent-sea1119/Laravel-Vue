@@ -1,0 +1,90 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+    .container {
+        @apply w-full mx-auto px-6 max-w-5xl;
+    }
+
+    .header-hero::before {
+        content: '';
+        z-index: -1;
+        opacity: .9;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        --bg-opacity: 1;
+        background-color: #bee3f8;
+        background-color: rgba(190, 227, 248, var(--bg-opacity));
+    }
+}
+
+.light-text-color {
+    color: #374151;
+}
+
+.backtotop {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 900px) {
+    .backtotop {
+        bottom: 20px;
+    }
+}
+
+img[data-fancybox="default"],
+img[data-fancybox="images"] {
+    cursor: zoom-in;
+}
+
+.selectize-input {
+    border-width: 2px !important;
+    --tw-border-opacity: 1 !important;
+    border-color: rgba(209, 213, 219, var(--tw-border-opacity)) !important;
+    border-radius: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    width: 100% !important;
+
+}
+
+.selectize-dropdown,
+.selectize-input,
+.selectize-input input {
+    font-family: inherit !important;
+    font-size: 13px !important;
+    line-height: 24px !important;
+    /* -webkit-font-smoothing: inherit; */
+    color: slategray !important;
+}
+
+.selectize-dropdown {
+    margin-top: 4px !important;
+}
+
+.selectize-dropdown [data-selectable].option {
+    cursor: pointer !important;
+}
+
+.option:hover {
+    color: blue;
+}
+
+.hide-back {
+    z-index: -9 !important; 
+}

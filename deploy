@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Prerequisite:
+# Check if PHP is not installed.
+if ! [ -x "$(command -v php)" ]; then
+  echo "PHP is not installed. Please install PHP and try again."
+  echo "Installing PHP..."
+  sudo apt-get install php
+fi
+
+# Check if composer is installed.
+composer -v > /dev/null 2>&1
+COMPOSER=$?
+if [[ $COMPOSER -ne 0 ]]; then
+    echo 'Composer is not installed'
+    echo "Installing Composer..."
+    curl -sS https://getcomposer.org/installer | php
+    sudo mv composer.phar /usr/local/bin/composer
+fi
+
+# Check if node js is not installed.
+if ! [ -x "$(command -v node)" ]; then
+  echo "Node.js is not installed. Please install Node.js and try again."
+  echo "Installing Node.js..."
+  sudo apt-get install nodejs
+fi
+
+# Check if npm is not installed.
+if ! [ -x "$(command -v npm)" ]; then
+  echo "NPM is not installed. Please install NPM and try again."
+  echo "Installing NPM..."
+  sudo apt-get install npm
+fi
+
+# Install composer dependencies if vendor directory is not found.
+if [ ! -d "vendor" ]; then
+  echo "Installing composer dependencies..."
+  composer install
+fi
+# Install npm dependencies if node_modules directory is not found.
+if [ ! -d "node_modules" ]; then
+  echo "Installing npm dependencies..."
+  npm install
+fi
+
+# Storage directory premission.
+sudo chmod -R 777 storage
+
+# Run laravel related commands.
+echo "Running laravel commands..."
+php artisan key:generate
+php artisan migrate
+php artisan storage:link
+php artisan passport:keys
+
+# Building the application.
+echo "Running npm commands..."
+npm run prod
+
+# Done.
+echo "All done!"
